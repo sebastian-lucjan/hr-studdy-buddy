@@ -1,7 +1,6 @@
 import { Wrapper } from 'components/atoms/UserInfo/UserInfo.styles';
 
-export const UserInfo = ({ userData }) => {
-  const { name, attendance = '0%' } = userData;
+export const UserInfo = ({ name, attendance = '0%' }) => {
   return (
     <Wrapper>
       <p className="user">{name}</p>
