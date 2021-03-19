@@ -16,7 +16,7 @@ export const UserAverageSign = ({ average }) => {
   };
 
   return (
-    <Wrapper color={calculateColor} average={average}>
+    <Wrapper calculateColor={calculateColor} average={average}>
       {average}
     </Wrapper>
   );
