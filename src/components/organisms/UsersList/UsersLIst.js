@@ -1,5 +1,6 @@
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { Wrapper, StyledTitle, StyledList } from 'components/organisms/UsersList/UsersList.styles';
+import { StyledTitle, StyledList } from 'components/organisms/UsersList/UsersList.styles';
+import { Wrapper } from 'components/molecules/ViewWrapper/ViewWrapper.styles';
 
 // import { GlobalStyle } from 'assets/styles/globalStyles';
 
