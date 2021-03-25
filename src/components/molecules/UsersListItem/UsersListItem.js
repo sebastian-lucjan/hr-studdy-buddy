@@ -4,14 +4,12 @@ import { Wrapper } from 'components/molecules/UsersListItem/UsersListItem.styles
 import { UserInfo } from 'components/atoms/UserInfo/UserInfo';
 import { UserAverageSign } from 'components/atoms/UserAverageSign/UserAverageSign';
 
-const showIndex = (index) => alert(`This is student #${index + 1}`);
-
-const UsersListItem = ({ index, userData }) => {
+const UsersListItem = ({ index, userData: { name, average, attendance }, handleDeleteUser }) => {
   return (
     <Wrapper>
-      <UserAverageSign average={userData.average} />
-      <UserInfo userData={userData} />
-      <Button onClick={() => showIndex(index)} />
+      <UserAverageSign average={average} />
+      <UserInfo name={name} attendance={attendance} />
+      <Button onClick={() => handleDeleteUser(name)} />
     </Wrapper>
   );
 };
