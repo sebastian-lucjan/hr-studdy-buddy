@@ -2,8 +2,9 @@ import UsersList from 'components/organisms/UsersList/UsersLIst';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Form from 'components/organisms/Form/Form';
+import { Navigation } from 'components/organisms/Navigation/Navigation';
 
 import { useState, useEffect } from 'react';
 import { users as usersData } from 'data/users';
@@ -80,17 +81,13 @@ const Root = () => {
       [e.target.name]: e.target.value,
     });
   };
-  // const UsersList = ({ users, handleDeleteUser, isLoading }) => {
-  // { handleAddUser, handleInputChange, formValues: { name, attendance, average } }
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/add-user">Add user</Link>
-          </nav>
+          <Navigation />
           <Switch>
             <Route path="/" exact>
               <UsersList handleDeleteUser={handleDeleteUser} isLoading={isLoading} users={users} />
