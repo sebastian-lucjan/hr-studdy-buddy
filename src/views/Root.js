@@ -12,13 +12,7 @@ import { MainTemplate } from 'components/templates/MainTemplate';
 
 import AddUser from 'views/AddUser';
 import Dashboard from 'views/Dashboard';
-
-// const Wrapper = styled.div`
-//   background-color: ${({ theme }) => theme.colors.lightgray};
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+import React from 'react';
 
 const mockAPI = (succes) => {
   return new Promise((resolve, reject) => {
@@ -37,6 +31,8 @@ const initialFormState = {
   attendance: '',
   average: '',
 };
+
+const UsersContext = React.createContext();
 
 const Root = () => {
   const [users, setUsers] = useState([]);

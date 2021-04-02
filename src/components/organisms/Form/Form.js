@@ -20,6 +20,7 @@ const Form = ({ handleAddUser, handleInputChange, formValues: { name, attendance
 };
 Form.propTypes = {
   handleAddUser: PropTypes.func,
+  handleInputChange: PropTypes.func,
 };
 
 export default Form;

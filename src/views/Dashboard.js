@@ -1,7 +1,7 @@
 // import React, { useContext } from 'react';
 import React from 'react';
 import { ViewWrapper } from '../components/molecules/ViewWrapper/ViewWrapper';
-import UsersList from '../components/organisms/UsersList/UsersList';
+import UsersList from '../components/organisms/UsersList/UsersLIst';
 // import { UsersContext } from 'providers/UsersProvider';
 
 const Dashboard = (props) => {
