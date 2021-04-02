@@ -1,20 +1,24 @@
-import UsersList from 'components/organisms/UsersList/UsersLIst';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Form from 'components/organisms/Form/Form';
-import { Navigation } from 'components/organisms/Navigation/Navigation';
+// import { Navigation } from 'components/organisms/Navigation/Navigation';
+import { Wrapper } from './Root.styles';
 
 import { useState, useEffect } from 'react';
 import { users as usersData } from 'data/users';
 
-const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightgray};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { MainTemplate } from 'components/templates/MainTemplate';
+
+import AddUser from 'views/AddUser';
+import Dashboard from 'views/Dashboard';
+
+// const Wrapper = styled.div`
+//   background-color: ${({ theme }) => theme.colors.lightgray};
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const mockAPI = (succes) => {
   return new Promise((resolve, reject) => {
@@ -36,7 +40,7 @@ const initialFormState = {
 
 const Root = () => {
   const [users, setUsers] = useState([]);
-  const [isLoading, setloadingState] = useState([]);
+  const [isLoading, setloadingState] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
 
   const handleAddUser = (e) => {
@@ -86,17 +90,18 @@ const Root = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Wrapper>
-          <Navigation />
-          <Switch>
-            <Route path="/" exact>
-              <UsersList handleDeleteUser={handleDeleteUser} isLoading={isLoading} users={users} />
-            </Route>
-            <Route path="/add-user">
-              <Form handleAddUser={handleAddUser} handleInputChange={handleInputChange} formValues={formValues} />
-            </Route>
-          </Switch>
-        </Wrapper>
+        <MainTemplate>
+          <Wrapper>
+            <Switch>
+              <Route path="/" exact>
+                <Dashboard handleDeleteUser={handleDeleteUser} isLoading={isLoading} users={users} />
+              </Route>
+              <Route path="/add-user">
+                <AddUser handleAddUser={handleAddUser} handleInputChange={handleInputChange} formValues={formValues} />
+              </Route>
+            </Switch>
+          </Wrapper>
+        </MainTemplate>
       </ThemeProvider>
     </Router>
   );
