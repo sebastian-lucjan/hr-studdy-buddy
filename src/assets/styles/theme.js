@@ -9,12 +9,13 @@ export const theme = {
     error: '#CB8581',
     warning: '#E1D888',
     darkPurple: '#C0C7D6',
-    lightPurple: '#ECEFF7',
+    lightPurple: '#D6D8E5',
   },
   fontSize: {
     xl: '24px',
     l: '17px',
     m: '12px',
     s: '11px',
+    logo: '15px',
   },
 };
