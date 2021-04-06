@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-// import { NavLink } from 'react-router-dom';
 
 const activeClassName = 'active-link';
 
 export const StyledLink = styled(NavLink).attrs({ activeClassName })`
+  // <=> activeClassName: activeClassName
   margin: 14px 24px 14px 0px;
-  /* width: 100%; */
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: 700;
-  /* background-color: red; */
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
 
@@ -32,8 +30,6 @@ export const StyledLink = styled(NavLink).attrs({ activeClassName })`
     height: 3px;
     top: 50%;
     transform: translateY(-50%);
-    /* right: -20px; */
-    /* background-color: ${({ theme }) => theme.colors.black}; */
     background-color: ${({ theme }) => theme.colors.darkPurple};
   }
 `;
