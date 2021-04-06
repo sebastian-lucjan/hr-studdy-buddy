@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyledTitle } from 'components/organisms/Form/Form.styles';
+import { StyledTitle } from 'views/AddUser.styles';
 import { Wrapper } from 'components/molecules/ViewWrapper/ViewWrapper.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
+import PropTypes from 'prop-types';
 
 const Form = ({ handleAddUser, handleInputChange, formValues: { name, attendance, average } }) => {
   return (
@@ -16,6 +17,10 @@ const Form = ({ handleAddUser, handleInputChange, formValues: { name, attendance
       </Wrapper>
     </>
   );
+};
+Form.propTypes = {
+  handleAddUser: PropTypes.func,
+  handleInputChange: PropTypes.func,
 };
 
 export default Form;

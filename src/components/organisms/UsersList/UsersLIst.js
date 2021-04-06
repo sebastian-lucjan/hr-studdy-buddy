@@ -1,28 +1,34 @@
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { StyledTitle, StyledList } from 'components/organisms/UsersList/UsersList.styles';
-import { Wrapper } from 'components/molecules/ViewWrapper/ViewWrapper.styles';
+import { StyledList } from 'components/organisms/UsersList/UsersList.styles';
+// import PropTypes from 'prop-types';
+// import { UserShape } from 'types/index';
+import Title from 'components/atoms/Title/Title';
+import { UsersContext } from 'providers/UsersProviders';
+import { useContext } from 'react';
 
-// import { GlobalStyle } from 'assets/styles/globalStyles';
+const titleText = 'Student list';
 
-const UsersList = ({ users, handleDeleteUser, isLoading }) => {
-  return (
+const UsersList = () => {
+  const { isLoading, users } = useContext(UsersContext);
+
+  return isLoading ? (
+    <h1>Loading...</h1>
+  ) : (
     <>
-      <Wrapper>
-        {isLoading ? (
-          <h1>Loading...</h1>
-        ) : (
-          <>
-            <StyledTitle>Student list</StyledTitle>
-            <StyledList>
-              {users.map((userData, i) => (
-                <UsersListItem handleDeleteUser={handleDeleteUser} index={i} userData={userData} key={userData.name} />
-              ))}
-            </StyledList>
-          </>
-        )}
-      </Wrapper>
+      <Title text={titleText} />
+      <StyledList>
+        {users.map((userData, i) => (
+          <UsersListItem userData={userData} key={userData.name} />
+        ))}
+      </StyledList>
     </>
   );
 };
+
+// UsersList.propTypes = {
+//   users: PropTypes.arrayOf(PropTypes.shape(UserShape)),
+//   handleDeleteUser: PropTypes.func,
+//   isLoading: PropTypes.bool,
+// };
 
 export default UsersList;

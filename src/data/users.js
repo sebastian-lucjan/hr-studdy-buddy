@@ -1,5 +1,6 @@
 export const users = [
-  { name: 'Maria Łucjan', attendance: '16%', average: '2.3', id: 1 },
+  { name: 'Gloria Pritchett', attendance: '85%', average: '4.3', id: 1 },
+  { name: 'Maria Łucjan', attendance: '41%', average: '3.2', id: 1 },
   { name: 'Anna Hoh', attendance: '72%', average: '4.1', id: 2 },
   { name: 'Pioter Marek', attendance: '67%', average: '3.8', id: 3 },
   { name: 'Sebastian Łucjan', attendance: '98%', average: '4.5', id: 4 },

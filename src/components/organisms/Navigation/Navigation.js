@@ -9,9 +9,11 @@ export const Navigation = () => {
         <h1>Study</h1>
         <h1>Buddy</h1>
       </Logo>
-      <StyledLink to="/">Home</StyledLink>
+      <StyledLink exact to="/">
+        Dashboard
+      </StyledLink>
       <StyledLink to="/add-user">Add user</StyledLink>
-      <StyledLink to="/add-user">Logout</StyledLink>
+      <StyledLink to="/logout">Logout</StyledLink>
     </StyledNav>
   );
 };
