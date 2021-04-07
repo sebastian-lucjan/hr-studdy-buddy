@@ -3,7 +3,7 @@ import { StyledList } from 'components/organisms/UsersList/UsersList.styles';
 // import PropTypes from 'prop-types';
 // import { UserShape } from 'types/index';
 import Title from 'components/atoms/Title/Title';
-import { UsersContext } from 'providers/UsersProviders';
+import { UsersContext } from 'providers/UsersProvider';
 import { useContext } from 'react';
 
 const titleText = 'Student list';

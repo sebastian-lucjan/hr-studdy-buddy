@@ -20,7 +20,7 @@ export const UsersContext = React.createContext({
   isLoading: true,
 });
 
-const UsersProvider = ({ children }) => {
+export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [isLoading, setloadingState] = useState(true);
 
@@ -62,5 +62,3 @@ const UsersProvider = ({ children }) => {
     </UsersContext.Provider>
   );
 };
-
-export default UsersProvider;

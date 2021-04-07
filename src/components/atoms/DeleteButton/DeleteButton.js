@@ -2,7 +2,7 @@
 import { ReactComponent as DeleteIcon } from 'assets/icons/delete-icon.svg';
 import { StyledButton } from 'components/atoms/DeleteButton/DeleteButton.styles';
 import React, { useContext } from 'react';
-import { UsersContext } from 'providers/UsersProviders';
+import { UsersContext } from 'providers/UsersProvider';
 
 const Button = ({ name }) => {
   const { handleDeleteUser } = useContext(UsersContext);

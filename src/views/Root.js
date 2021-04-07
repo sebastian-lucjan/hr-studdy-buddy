@@ -8,7 +8,7 @@ import { MainTemplate } from 'components/templates/MainTemplate';
 import AddUser from 'views/AddUser';
 import Dashboard from 'views/Dashboard';
 import React from 'react';
-import UsersProvider from 'providers/UsersProviders';
+import { UsersProvider } from 'providers/UsersProvider';
 
 const Root = () => {
   return (
