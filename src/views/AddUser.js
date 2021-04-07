@@ -3,7 +3,8 @@ import Title from '../components/atoms/Title/Title';
 import { ViewWrapper } from '../components/molecules/ViewWrapper/ViewWrapper';
 import FormField from '../components/molecules/FormField/FormField';
 import { Button } from '../components/atoms/Button/Button';
-import { UsersContext } from '../providers/UsersProviders';
+import { UsersContext } from '../providers/UsersProvider';
+// import { UsersContext } from '../providers/UsersProvider';
 
 const titleText = 'Add new student';
 

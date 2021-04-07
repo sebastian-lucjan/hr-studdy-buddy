@@ -1,19 +1,14 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Title from 'components/atoms/Title/Title';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { StyledList } from 'components/organisms/UsersList/UsersList.styles';
-// import PropTypes from 'prop-types';
-// import { UserShape } from 'types/index';
-import Title from 'components/atoms/Title/Title';
-import { UsersContext } from 'providers/UsersProviders';
-import { useContext } from 'react';
+import { UserShape } from 'types/index';
 
 const titleText = 'Student list';
 
-const UsersList = () => {
-  const { isLoading, users } = useContext(UsersContext);
-
-  return isLoading ? (
-    <h1>Loading...</h1>
-  ) : (
+const UsersList = ({ users, isLoading }) => {
+  return (
     <>
       <Title text={titleText} />
       <StyledList>
@@ -25,10 +20,10 @@ const UsersList = () => {
   );
 };
 
-// UsersList.propTypes = {
-//   users: PropTypes.arrayOf(PropTypes.shape(UserShape)),
-//   handleDeleteUser: PropTypes.func,
-//   isLoading: PropTypes.bool,
-// };
+UsersList.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.shape(UserShape)),
+  isLoading: PropTypes.bool,
+  deleteUser: PropTypes.func,
+};
 
 export default UsersList;
