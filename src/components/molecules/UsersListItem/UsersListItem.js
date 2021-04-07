@@ -3,7 +3,7 @@ import { StyledItem } from 'components/molecules/UsersListItem/UsersListItem.sty
 import { UserInfo } from 'components/atoms/UserInfo/UserInfo';
 import { UserAverageSign } from 'components/atoms/UserAverageSign/UserAverageSign';
 
-const UsersListItem = ({ userData: { name, average, attendance } }) => {
+const UsersListItem = ({ userData: { name, average, attendance = '0%' } }) => {
   return (
     <StyledItem>
       <UserAverageSign average={average} />

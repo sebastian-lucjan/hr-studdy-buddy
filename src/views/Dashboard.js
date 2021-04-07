@@ -2,11 +2,15 @@
 import React from 'react';
 import { ViewWrapper } from '../components/molecules/ViewWrapper/ViewWrapper';
 import UsersList from '../components/organisms/UsersList/UsersLIst';
+import { UsersContext } from 'providers/UsersProvider';
+import { useContext } from 'react';
 
 const Dashboard = () => {
+  const { users } = useContext(UsersContext);
+
   return (
     <ViewWrapper>
-      <UsersList />
+      <UsersList users={users} />
     </ViewWrapper>
   );
 };

@@ -15,7 +15,7 @@ const InputWithButton = () => {
   );
 };
 
-describe('Input With Button', () => {
+describe('Input With Button - test', () => {
   it('Renders the component', () => {
     render(<InputWithButton />);
     screen.getByText('Submit');
