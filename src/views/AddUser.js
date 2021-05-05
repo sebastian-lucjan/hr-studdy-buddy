@@ -9,11 +9,11 @@ import { useForm } from '../hooks/useForm';
 // const titleText = 'Add new student';
 
 const initialFormState = {
-  name: '',
   attendance: '',
   average: '',
   consent: false,
   error: '',
+  name: '',
 };
 
 const AddUser = () => {
