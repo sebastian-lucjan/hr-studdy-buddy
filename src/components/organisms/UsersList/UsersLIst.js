@@ -7,7 +7,7 @@ import { UserShape } from 'types/index';
 
 const titleText = 'Student list';
 
-const UsersList = ({ users, isLoading }) => {
+const UsersList = ({ users = [], isLoading }) => {
   return (
     <>
       <Title text={titleText} />

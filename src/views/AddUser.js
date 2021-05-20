@@ -6,8 +6,6 @@ import { Button } from '../components/atoms/Button/Button';
 import { UsersContext } from '../providers/UsersProvider';
 import { useForm } from '../hooks/useForm';
 
-// const titleText = 'Add new student';
-
 const initialFormState = {
   attendance: '',
   average: '',

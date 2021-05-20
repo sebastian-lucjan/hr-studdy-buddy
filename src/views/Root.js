@@ -1,14 +1,12 @@
-import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Wrapper } from './Root.styles';
 import { MainTemplate } from 'components/templates/MainTemplate';
-
+import React from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import AddUser from 'views/AddUser';
 import Dashboard from 'views/Dashboard';
-import React from 'react';
-import { UsersProvider } from 'providers/UsersProvider';
+import { Wrapper } from './Root.styles';
 
 const Root = () => {
   return (
@@ -16,18 +14,19 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MainTemplate>
-          <UsersProvider>
-            <Wrapper>
-              <Switch>
-                <Route path="/" exact>
-                  <Dashboard />
-                </Route>
-                <Route path="/add-user">
-                  <AddUser />
-                </Route>
-              </Switch>
-            </Wrapper>
-          </UsersProvider>
+          <Wrapper>
+            <Switch>
+              <Route path="/" exact>
+                <Redirect to="/group" />
+              </Route>
+              <Route path="/group/:id?" exact>
+                <Dashboard />
+              </Route>
+              <Route path="/add-user">
+                <AddUser />
+              </Route>
+            </Switch>
+          </Wrapper>
         </MainTemplate>
       </ThemeProvider>
     </Router>
