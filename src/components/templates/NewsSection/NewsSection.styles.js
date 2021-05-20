@@ -7,11 +7,20 @@ export const Wrapper = styled.div`
   border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 30px;
+  overflow-y: scroll;
 `;
 
+export const ContentWrapper = styled.div`
+  display: flex;
+  img {
+    max-width: 200px;
+    object-fit: cover;
+    margin-left: 20px;
+  }
+`;
 export const NewsSectionHeader = styled.h2`
   margin-right: auto;
   color: ${({ theme }) => theme.colors.darkGray};
