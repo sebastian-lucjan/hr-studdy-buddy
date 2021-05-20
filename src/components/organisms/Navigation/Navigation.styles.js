@@ -14,4 +14,6 @@ export const StyledNav = styled.nav`
   color: black;
   margin: 0;
   padding-top: 30px;
+  grid-row: 1/3;
+  grid-column: ;
 `;
