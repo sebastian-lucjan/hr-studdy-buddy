@@ -125,4 +125,13 @@ export const students = [
     average: '4.9',
     group: 'C',
   },
+  { id: '19', name: 'Maria Łucjan', attendance: '58%', average: '3.6', group: 'A' },
+  { id: '20', name: 'Anna Hoh', attendance: '72%', average: '4.1', group: 'A' },
+  { id: '21', name: 'Pioter Marek', attendance: '67%', average: '3.8', group: 'B' },
+  { id: '22', name: 'Sebastian Łucjan', attendance: '98%', average: '4.5', group: 'B' },
+  { id: '23', name: 'Gucio Gilas', attendance: '100%', average: '2.0', group: 'A' },
+  { id: '24', name: 'Dorota Gilas', attendance: '58%', average: '4.1', group: 'C' },
+  { id: '25', name: 'Agatka Gilas', attendance: '70%', average: '3.3', group: 'C' },
+  { id: '26', name: 'Rodzice GilasKry', average: '1.0', group: 'A' },
+  { id: '27', name: 'Gloria Pritchett', attendance: '85%', average: '4.3', group: 'B' },
 ];

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { users as usersData } from 'data/users';
+import axios from 'axios';
 
-const mockAPI = () => {
+const mockAPI = (usersData) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (usersData) {
@@ -23,6 +23,9 @@ export const UsersContext = React.createContext({
 export const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [isLoading, setloadingState] = useState(true);
+  // useEffect(() => {
+
+  // }, []);
 
   const handleAddUser = (formValues) => {
     const newUser = {
@@ -41,13 +44,16 @@ export const UsersProvider = ({ children }) => {
 
   useEffect(() => {
     setloadingState(true);
-
-    mockAPI()
-      .then((data) => {
-        setloadingState(false);
-        setUsers(data);
+    axios
+      .get('/students')
+      .then(({ data }) => {
+        console.log(data);
+        mockAPI(data.students).then((data) => {
+          setloadingState(false);
+          setUsers(data);
+        });
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
 
     return () => console.log('unmount'); // uruchamianie po usunięciu
   }, []);
