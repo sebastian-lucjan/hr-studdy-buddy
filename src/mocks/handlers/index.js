@@ -19,6 +19,8 @@ export const handlers = [
       ctx.json({
         students,
       })
-    ); //mogę zastąpić samym students
+    );
   }),
+
+  rest.post('users/search', (req, res, ctx) => {}),
 ];
