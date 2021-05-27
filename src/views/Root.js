@@ -4,7 +4,7 @@ import { MainTemplate } from 'components/templates/MainTemplate';
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import AddUser from 'views/AddUser';
+// import AddUser from 'views/AddUser';
 import Dashboard from 'views/Dashboard';
 import { Wrapper } from './Root.styles';
 
@@ -22,9 +22,9 @@ const Root = () => {
               <Route path="/group/:id?" exact>
                 <Dashboard />
               </Route>
-              <Route path="/add-user">
+              {/* <Route path="/add-user">
                 <AddUser />
-              </Route>
+              </Route> */}
             </Switch>
           </Wrapper>
         </MainTemplate>
