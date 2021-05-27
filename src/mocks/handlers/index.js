@@ -11,7 +11,6 @@ export const handlers = [
     const matchingStudents = req.body.searchPhrase
       ? students.filter((student) => student.name.toLowerCase().includes(req.body.searchPhrase.toLowerCase()))
       : [];
-    console.log(matchingStudents);
     return res(ctx.status(200), ctx.json({ students: matchingStudents }));
   }),
 

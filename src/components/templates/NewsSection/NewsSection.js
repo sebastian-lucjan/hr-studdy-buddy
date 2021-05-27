@@ -6,7 +6,7 @@ import axios from 'axios';
 export const NewsSection = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState('');
-  console.log(process.env.REACT_APP_DATOCMS_TOKEN);
+
   useEffect(() => {
     axios
       .post(

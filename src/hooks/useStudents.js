@@ -28,7 +28,6 @@ export const useStudents = ({ groupId = '' } = {}) => {
       const { data } = await axios.post(`/students/search`, {
         searchPhrase,
       });
-      console.log(data);
       return data;
     } catch (e) {
       console.log(e);

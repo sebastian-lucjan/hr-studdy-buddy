@@ -31,14 +31,19 @@ export const SearchWrapper = styled.div`
 `;
 
 export const SearchResult = styled.ul`
-  position: absolute;
-  top: 50px;
-  left: 0;
+  z-index: 1000;
+  max-height: 500px;
+  overflow-y: scroll;
+  padding: 10px;
+  border-radius: 15px;
+  list-style: none;
   width: 100%;
-  background-color: #aaa; //to del
-  height: 200px; //to del
-  max-height: 400px;
-  overflow: scroll;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.white};
 
   li {
     font-weight: bold;
@@ -46,5 +51,14 @@ export const SearchResult = styled.ul`
     background-color: ${({ theme }) => theme.colors.white};
     width: 100%;
     padding: 20px 5px;
+  }
+
+  li:hover,
+  li:focus {
+    background-color: ${({ theme }) => theme.colors.lightPurple};
+  }
+
+  li:not(:last-child) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.darkPurple};
   }
 `;
