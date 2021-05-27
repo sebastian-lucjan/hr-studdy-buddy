@@ -1,17 +1,17 @@
 import { Input } from 'components/atoms/Input/Input';
-import { SearchBarWrapper, SearchResult, SearchWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
+import { SearchBarWrapper, SearchResultItem, SearchResult, SearchWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
 import { useCombobox } from 'downshift';
 import { useStudents } from 'hooks/useStudents';
 import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
 
 export const SearchBar = () => {
-  const [searchPhrase, setSearchPhrase] = useState('');
-  const [matchingStudents, setMatchingStudents] = useState('');
+  // const [searchPhrase, setSearchPhrase] = useState('');
+  const [matchingStudents, setMatchingStudents] = useState([]);
   const { findStudents } = useStudents();
 
-  const getMatchingStudents = debounce(async () => {
-    const { students } = await findStudents(searchPhrase);
+  const getMatchingStudents = debounce(async ({ inputValue }) => {
+    const { students } = await findStudents(inputValue);
     setMatchingStudents(students);
   }, 1000);
 
@@ -19,14 +19,6 @@ export const SearchBar = () => {
     items: matchingStudents,
     onInputValueChange: getMatchingStudents,
   });
-
-  const handleSearchPhrase = (e) => setSearchPhrase(e.target.value);
-  useEffect(() => setSearchPhrase(searchPhrase), [searchPhrase]);
-
-  useEffect(() => {
-    if (!searchPhrase) return;
-    getMatchingStudents(searchPhrase);
-  }, [searchPhrase]); //getMatchingStudents ?
 
   return (
     <SearchBarWrapper>
@@ -37,14 +29,17 @@ export const SearchBar = () => {
         </p>
       </StatusInfo>
       <SearchWrapper {...getComboboxProps()}>
-        <Input onChange={handleSearchPhrase} value={searchPhrase} />
-        {matchingStudents.length && searchPhrase ? (
-          <SearchResult>
-            {matchingStudents.map(({ id, name }) => (
-              <li key={id}>{`${name}, id: ${id}`}</li>
+        <Input {...getInputProps()} />
+        <SearchResult isVisible={isOpen && matchingStudents.length} {...getMenuProps()}>
+          {isOpen &&
+            matchingStudents.map((student, index) => (
+              <SearchResultItem
+                isHighlighted={highlightedIndex === index}
+                {...getItemProps({ item: student, index })}
+                key={student.id}
+              >{`${student.name}, id: ${student.id}`}</SearchResultItem>
             ))}
-          </SearchResult>
-        ) : null}
+        </SearchResult>
       </SearchWrapper>
     </SearchBarWrapper>
   );
