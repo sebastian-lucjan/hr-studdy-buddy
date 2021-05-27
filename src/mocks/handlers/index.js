@@ -7,8 +7,15 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ groups }));
   }),
 
+  rest.post('/students/search', (req, res, ctx) => {
+    const matchingStudents = req.body.searchPhrase
+      ? students.filter((student) => student.name.toLowerCase().includes(req.body.searchPhrase.toLowerCase()))
+      : [];
+    console.log(matchingStudents);
+    return res(ctx.status(200), ctx.json({ students: matchingStudents }));
+  }),
+
   rest.get('/students/:group', (req, res, ctx) => {
-    console.log(req.params);
     if (req.params.group) {
       const matchingStudents = students.filter((student) => student.group === req.params.group);
 
@@ -22,3 +29,10 @@ export const handlers = [
     ); //mogę zastąpić samym students
   }),
 ];
+// {
+//   id: '1',
+//   name: 'Adam Romański',
+//   attendance: '39%',
+//   average: '2.3',
+//   group: 'A',
+// },

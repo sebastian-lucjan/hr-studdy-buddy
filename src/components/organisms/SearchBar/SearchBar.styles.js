@@ -25,3 +25,26 @@ export const StatusInfo = styled.div`
     margin: 5px;
   }
 `;
+
+export const SearchWrapper = styled.div`
+  position: relative;
+`;
+
+export const SearchResult = styled.ul`
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #aaa; //to del
+  height: 200px; //to del
+  max-height: 400px;
+  overflow: scroll;
+
+  li {
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.darkGrey};
+    background-color: ${({ theme }) => theme.colors.white};
+    width: 100%;
+    padding: 20px 5px;
+  }
+`;

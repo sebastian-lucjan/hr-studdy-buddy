@@ -22,5 +22,22 @@ export const useStudents = ({ groupId = '' } = {}) => {
       .then(({ data }) => setStudents(data.students))
       .catch((err) => console.log(err.message));
   }, [groupId]);
-  return { students, groups };
+
+  const findStudents = async (searchPhrase) => {
+    try {
+      const { data } = await axios.post(`/students/search`, {
+        searchPhrase,
+      });
+      console.log(data);
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return {
+    students,
+    groups,
+    findStudents,
+  };
 };
