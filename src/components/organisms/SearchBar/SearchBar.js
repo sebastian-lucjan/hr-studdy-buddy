@@ -14,7 +14,6 @@ export const SearchBar = () => {
 
   const getMatchingStudents = debounce(async () => {
     const { students } = await findStudents(searchPhrase);
-    console.log(students);
     setMatchingStudents(students);
   }, 1000);
 
